@@ -1,0 +1,37 @@
+@import 'C:/exercise/weather-app/src/styles/_variables.scss';
+
+.content {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.header {
+  padding: 2rem 0;
+  text-align: center;
+  background-color: $main-color;
+}
+
+.hero {
+  color: $white;
+  font-weight: bold;
+  font-size: 2rem;
+  transition: all 0.2s ease;
+
+  &:hover {
+    color: $complementary-color;
+    text-decoration: none;
+  }
+}
+
+.main {
+  flex: 1;
+  padding: 2rem 0;
+}
+
+.footer {
+  padding: 2rem 0;
+  color: $white;
+  text-align: center;
+  background-color: $main-color;
+}

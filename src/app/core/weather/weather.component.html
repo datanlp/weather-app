@@ -1,0 +1,64 @@
+<div class="row">
+  <div class="col-12 search" role="search">
+    <input
+      type="text"
+      placeholder="Enter city"
+      aria-label="Search for your city name"
+      class="search__input"
+      [formControl]="searchInput"
+    />
+  </div>
+</div>
+<div class="row" *ngIf="city">
+  <div class="col-12">
+    <h2>Weather in: {{ city.city.name }}, {{ city.city.country | uppercase }}</h2>
+  </div>
+  <div class="col-12 col-md-6 mb-3">
+    <div class="card">
+      <h3>Current weather</h3>
+      <figure class="weather-figure">
+        <img
+          [src]="weatherIconUrl + city.list[0].weather[0].icon + '.png'"
+          alt="Current weather"
+          class="weather-figure__image"
+        />
+        <figcaption>{{ city.list[0].weather[0].description }}</figcaption>
+      </figure>
+      <div class="signature">
+        <div class="signature__info">{{ city.list[0].main.temp | number: '1.0-0' }}&#730;C</div>
+        <div class="signature__label">temperature</div>
+      </div>
+    </div>
+  </div>
+  <div class="col-12 col-md-6 mb-3">
+    <div class="card card--color-1">
+      <h3>Average pressure (5 days)</h3>
+      <div class="signature">
+        <div class="signature__info">{{ pressure | number: '1.0-0' }}hPa</div>
+      </div>
+    </div>
+  </div>
+  <div class="col-12 my-3">
+    <h3>Future weather</h3>
+  </div>
+  <div *ngFor="let item of city.list | slice: 1; let i = index" class="col-6 col-md-4 col-lg-3 col-xl-2 mb-3">
+    <div
+      class="card"
+      [ngClass]="{ 'card--color-2': i % 3 === 0, 'card--color-3': i % 3 === 1, 'card--color-1': i % 3 === 2 }"
+    >
+      <span>{{ item.dt * 1000 | date: 'short' }}</span>
+      <figure class="weather-figure">
+        <img
+          [src]="weatherIconUrl + item.weather[0].icon + '.png'"
+          alt="Current weather"
+          class="weather-figure__image"
+        />
+        <figcaption>{{ item.weather[0].description }}</figcaption>
+      </figure>
+      <div class="signature">
+        <div class="signature__info signature__info--small">{{ item.main.temp | number: '1.0-0' }}&#730;C</div>
+        <div class="signature__text">temperature</div>
+      </div>
+    </div>
+  </div>
+</div>

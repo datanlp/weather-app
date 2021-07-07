@@ -1,0 +1,53 @@
+@import 'C:/exercise/weather-app/src/styles/_variables.scss';
+
+.card {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  padding: 0.5rem;
+  text-align: center;
+  background-color: rgba($main-color, 0.2);
+  border-radius: 6px;
+
+  &--color-1 {
+    background-color: rgba($complementary-color, 0.2);
+  }
+
+  &--color-2 {
+    background-color: rgba($secondary-color, 0.2);
+  }
+
+  &--color-3 {
+    background-color: rgba($main-color, 0.2);
+  }
+}
+
+.search {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 1rem;
+
+  &__input {
+    display: block;
+    padding: 0.75rem;
+    border: 1px solid $main-color;
+    border-radius: 6px;
+    appearance: none;
+  }
+}
+
+.weather-figure {
+  &__image {
+    width: 50px;
+  }
+}
+
+.signature {
+  &__info {
+    font-size: 3rem;
+
+    &--small {
+      font-size: 2rem;
+    }
+  }
+}
